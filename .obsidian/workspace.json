@@ -8,32 +8,119 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a7b799419d03d5dd",
+            "id": "ac48a8b209f95d09",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Helmholtz Equation.md",
+                "file": "Complex Numbers.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Helmholtz Equation"
+              "title": "Complex Numbers"
             }
           },
           {
-            "id": "ac48a8b209f95d09",
+            "id": "b43a204ecab5a568",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Figures/maxwell_fresnel_contour.png"
+                "file": "Conformal Mappings.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "maxwell_fresnel_contour"
+              "icon": "lucide-file",
+              "title": "Conformal Mappings"
+            }
+          },
+          {
+            "id": "c7187fd2a7e9b04a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linear Algebra.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Linear Algebra"
+            }
+          },
+          {
+            "id": "7f2f81fc197bfe78",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Operators and Eigenvalues.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Operators and Eigenvalues"
+            }
+          },
+          {
+            "id": "0dc4681ef10c43b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dirac Notation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Dirac Notation"
+            }
+          },
+          {
+            "id": "eb12542383ebe11e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "The Schrodinger Equation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "The Schrodinger Equation"
+            }
+          },
+          {
+            "id": "85a69fde3ca05c9d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Greens Functions.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Greens Functions"
+            }
+          },
+          {
+            "id": "0a071ce1b804571b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Fourier Analysis.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Fourier Analysis"
             }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -90,7 +177,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 261.5
+    "width": 256.5,
+    "collapsed": true
   },
   "right": {
     "id": "f51a58b0ebe4a5ab",
@@ -195,44 +283,48 @@
       "bases:Create new base": false
     }
   },
-  "active": "a7b799419d03d5dd",
+  "active": "85a69fde3ca05c9d",
   "lastOpenFiles": [
-    "The Schrodinger Equation.md",
     "Helmholtz Equation.md",
+    "LOG.md.tmp.8868.1776738546469",
+    "INDEX.md.tmp.8868.1776738538626",
+    "INDEX.md.tmp.8868.1776738535713",
+    "INDEX.md.tmp.8868.1776738535553",
+    "INDEX.md.tmp.8868.1776738526872",
+    "Helmholtz Equation.md.tmp.8868.1776738524948",
+    "Greens Functions.md",
+    "Greens Functions.md.tmp.8868.1776738514339",
+    "Figures/greens_delta_scattering.png",
+    "Figures/greens_coulomb_convolution.png",
+    "Figures/greens_iepsilon.png",
+    "Figures/greens_free_space_dims.png",
+    "Scripts/greens_functions.py",
+    "LOG.md.tmp.8868.1776736134264",
+    "Helmholtz Equation.md.tmp.8868.1776736125144",
+    "Fourier Analysis.md",
+    "The Schrodinger Equation.md",
+    "Dirac Notation.md",
+    "Hilbert Spaces.md",
+    "Linear Algebra.md",
+    "Operators and Eigenvalues.md",
+    "Maxwells Equations.md",
+    "Scalar and Vector Fields.md",
+    "Harmonic Functions.md",
+    "Conformal Mappings.md",
+    "Complex Numbers.md",
+    "Figures/complex_sqrt_panel.png",
+    "Figures/conformal_jacobian_element.png",
+    "LOG.md",
+    "INDEX.md",
+    "Figures/maxwell_fresnel_contour.png",
+    "llm-wiki.md",
+    "Probability and Complex Amplitudes.md",
+    "Complex Permittivity.md",
     "Figures/helmholtz_greens_expansion.png",
     "Figures/helmholtz_spectrum.png",
     "Figures/helmholtz_circular_modes.png",
-    "Figures/helmholtz_rect_modes.png",
-    "Scripts/helmholtz_equation.py",
-    "Maxwells Equations.md",
     "Anisotropic Media.md",
-    "Complex Permittivity.md",
-    "Complex Numbers.md",
-    "Conformal Mappings.md",
-    "Harmonic Functions.md",
-    "Conformal Mappings.md.tmp.43556.1776711080081",
-    "Figures/conformal_jacobian_element.png",
-    "CLAUDE.md.tmp.43556.1776709630454",
-    "Figures/conformal_joukowski.png",
-    "Figures/conformal_mobius_circles.png",
-    "Figures/conformal_critical_points.png",
-    "Figures/conformal_angle_preservation.png",
-    "Figures/conformal_grid_gallery.png",
-    "Scripts/conformal_mappings.py",
-    "Hilbert Spaces.md",
-    "Operators and Eigenvalues.md",
-    "Fourier Analysis.md",
-    "CLAUDE.md.tmp.43556.1776555790908",
-    "Complex Permittivity.md.tmp.43556.1776555776239",
-    "Scripts/animations.py",
-    "Fourier Analysis.md.tmp.43556.1776555339731",
-    "Operators and Eigenvalues.md.tmp.43556.1776555297784",
-    "Anisotropic Media.md.tmp.43556.1776555291997",
     "CLAUDE.md",
-    "Linear Algebra.md",
-    "Dirac Notation.md",
-    "Probability and Complex Amplitudes.md",
-    "Scalar and Vector Fields.md",
     "Scalar Fields.md",
     "Vector Fields.md",
     "Fundamental Theorem of Algebra.md"

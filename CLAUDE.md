@@ -4,6 +4,12 @@
 
 An interactive mathematical notebook combining Python visualization scripts with an Obsidian vault. The goal is to explore and teach mathematical concepts — from complex analysis through quantum mechanics — through narrative writing paired with generated figures.
 
+## Start Here (for AI agents)
+
+On a cold start, read [`INDEX.md`](INDEX.md) first. It is the content catalog: reading order, dependency graph between notebooks, section outlines, and which figures belong to which page. Then check [`LOG.md`](LOG.md) for recent activity. The pattern is adapted from [`llm-wiki.md`](llm-wiki.md).
+
+When you edit a notebook, add a figure, or change structure, append a one-line entry to `LOG.md` and update the relevant entry in `INDEX.md`. Treat those two files the way the llm-wiki pattern treats `index.md` / `log.md`: the LLM owns them.
+
 ## Architecture
 
 ```

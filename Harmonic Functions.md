@@ -1,4 +1,4 @@
-The [[Scalar and Vector Fields]] notebook introduced the gradient, divergence, and curl. The Laplacian combines the first two: it's the divergence of the gradient. Functions whose Laplacian is zero everywhere are called **harmonic**, and they turn out to be exactly the real and imaginary parts of the analytic functions from [[Complex Numbers]]. This is where the two threads converge.
+harmonic The [[Scalar and Vector Fields]] notebook introduced the gradient, divergence, and curl. The Laplacian combines the first two: it's the divergence of the gradient. Functions whose Laplacian is zero everywhere are called **harmonic**, and they turn out to be exactly the real and imaginary parts of the analytic functions from [[Complex Numbers]]. This is where the two threads converge.
 
 ## The Laplacian
 

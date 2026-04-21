@@ -55,60 +55,86 @@ def momentum_wavefunction(p, x0=0.0, sigma=0.5, k0=5.0):
 
 
 def plot_basis_decomposition(save_as=None):
-    """Show a state decomposed into energy eigenstates with coefficients.
+    """Show the step-by-step projection from the x-basis into the n-basis.
 
-    Left: the wavefunction psi(x).
-    Right: bar chart of |c_n|^2 probabilities.
+    Panel 1: the state psi(x) in the position basis.
+    Panel 2: the weighted components c_n * phi_n(x) that sum to psi — the
+             bridge from x-domain to n-domain, making the projection explicit.
+    Panel 3: the resulting |c_n|^2 bar chart in the energy basis.
     """
     L = np.pi
     x = np.linspace(0, L, 500)
 
-    # Build a wavefunction as a specific superposition
-    psi = np.zeros_like(x, dtype=complex)
     coeffs = {1: 0.7, 2: 0.5, 3: 0.3, 5: 0.2}
-    # Normalize
     norm = np.sqrt(sum(c**2 for c in coeffs.values()))
     coeffs = {n: c / norm for n, c in coeffs.items()}
 
+    psi = np.zeros_like(x)
     for n, c in coeffs.items():
         psi += c * box_eigenfunction(x, n, L)
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(16, 5))
     colors = sns.color_palette("deep")
 
-    # Left: the wavefunction
-    ax1.plot(x, np.real(psi), color=colors[0], linewidth=2, label=r"$\psi(x)$")
-    ax1.fill_between(x, np.real(psi), alpha=0.2, color=colors[0])
+    # Panel 1: psi(x) in the position basis
+    ax1.plot(x, psi, color=colors[0], linewidth=2, label=r"$\psi(x) = \langle x | \psi \rangle$")
+    ax1.fill_between(x, psi, alpha=0.2, color=colors[0])
     ax1.set_xlabel(r"$x$")
     ax1.set_ylabel(r"$\psi(x)$")
-    ax1.set_title(
-        r"$|\psi\rangle = \sum_n c_n |n\rangle$"
-        r"  $\longleftrightarrow$  "
-        r"$\psi(x) = \langle x | \psi \rangle$"
-    )
+    ax1.set_title(r"Position basis: $\psi(x)$")
     ax1.axhline(0, color="gray", linewidth=0.5, linestyle=":")
     ax1.grid(True, alpha=0.3)
-    ax1.legend()
+    ax1.legend(loc="upper right")
 
-    # Right: |c_n|^2 probabilities
+    # Panel 2: weighted basis components stacked vertically, summing to psi
+    sorted_ns = sorted(coeffs.keys())
+    offset_step = 1.1 * max(abs(c) * np.sqrt(2 / L) for c in coeffs.values())
+    top_offset = (len(sorted_ns) + 1) * offset_step
+    ax2.plot(x, psi + top_offset, color=colors[0], linewidth=2)
+    ax2.fill_between(x, top_offset, psi + top_offset, alpha=0.2, color=colors[0])
+    ax2.text(L + 0.05, top_offset, r"$\psi(x)$", va="center", fontsize=11, color=colors[0])
+
+    # Draw a visual "=" separator
+    ax2.text(
+        L / 2, top_offset - 0.55 * offset_step, r"$=\ \sum_n c_n\, \phi_n(x)$",
+        ha="center", va="center", fontsize=12, color="gray",
+    )
+
+    for idx, n in enumerate(sorted_ns):
+        c = coeffs[n]
+        component = c * box_eigenfunction(x, n, L)
+        y_offset = (len(sorted_ns) - 1 - idx) * offset_step
+        color = colors[(idx + 1) % len(colors)]
+        ax2.plot(x, component + y_offset, color=color, linewidth=1.8)
+        ax2.fill_between(x, y_offset, component + y_offset, alpha=0.2, color=color)
+        ax2.axhline(y_offset, color="gray", linewidth=0.4, linestyle=":")
+        ax2.text(
+            L + 0.05, y_offset,
+            rf"$c_{{{n}}}\,\phi_{{{n}}}(x),\ c_{{{n}}}={c:.2f}$",
+            va="center", fontsize=10, color=color,
+        )
+
+    ax2.set_xlabel(r"$x$")
+    ax2.set_xlim(0, L + 1.1)
+    ax2.set_yticks([])
+    ax2.set_title(r"Projection: $c_n = \langle n | \psi \rangle = \int \phi_n^*(x)\,\psi(x)\,dx$")
+    ax2.grid(False)
+
+    # Panel 3: |c_n|^2 in the energy basis
     n_max = 8
     probs = [abs(coeffs.get(n, 0)) ** 2 for n in range(1, n_max + 1)]
-    ax2.bar(range(1, n_max + 1), probs, color=colors[1], edgecolor="white", alpha=0.85)
-    # Label nonzero bars
+    ax3.bar(range(1, n_max + 1), probs, color=colors[1], edgecolor="white", alpha=0.85)
     for n in coeffs:
         if n <= n_max:
-            ax2.text(
-                n,
-                abs(coeffs[n]) ** 2 + 0.01,
-                rf"$|c_{n}|^2$",
-                ha="center",
-                fontsize=10,
+            ax3.text(
+                n, abs(coeffs[n]) ** 2 + 0.01,
+                rf"$|c_{{{n}}}|^2$", ha="center", fontsize=10,
             )
-    ax2.set_xlabel(r"$n$")
-    ax2.set_ylabel(r"$|\langle n | \psi \rangle|^2$")
-    ax2.set_title(r"Measurement probabilities: $P(n) = |c_n|^2$")
-    ax2.set_xticks(range(1, n_max + 1))
-    ax2.grid(True, alpha=0.3, axis="y")
+    ax3.set_xlabel(r"$n$")
+    ax3.set_ylabel(r"$|\langle n | \psi \rangle|^2$")
+    ax3.set_title(r"Energy basis: $P(n) = |c_n|^2$")
+    ax3.set_xticks(range(1, n_max + 1))
+    ax3.grid(True, alpha=0.3, axis="y")
 
     plt.tight_layout()
     _save_fig(fig, save_as)

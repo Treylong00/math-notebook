@@ -3,7 +3,6 @@ Complex numbers are cool and mysterious. First, you have to get comfortable with
 ## Polynomials
 
 Consider the polynomial
-
 $$f(x) = x^2 + 1$$
 
 Every polynomial in $\mathbb{R}[x]$ maps $\mathbb{R} \to \mathbb{R}$, but some polynomials have no real *roots*, meaning there is no $x \in \mathbb{R}$ such that $f(x) = 0$. Compare $x^2 - 1$, which crosses zero at $x = \pm 1$, with $x^2 + 1$, which sits entirely above the x-axis:
@@ -133,7 +132,7 @@ The left panel shows $|\ln(z)|$ — the modulus grows as you move away from $z =
 
 This notebook has covered the motivation, definition, and basic visualization of complex numbers. Here are natural directions to explore:
 
-- **Conformal mappings** — complex functions that preserve angles. The Mobius transform $f(z) = (z+1)/(z-1)$ (already in `complex_numbers.py`) is a classic example. Visualize how it warps a grid of lines or circles.
+- **[[Conformal mappings]]** — complex functions that preserve angles. The Mobius transform $f(z) = (z+1)/(z-1)$ (already in `complex_numbers.py`) is a classic example. Visualize how it warps a grid of lines or circles.
 - **Residue calculus** — computing real integrals by integrating in the complex plane. The poles we've been visualizing are exactly the points that contribute to these integrals.
 - **Riemann surfaces** — instead of choosing a branch for $\sqrt{z}$ or $\ln(z)$, glue all branches together into a single surface. This eliminates branch cuts entirely.
 - **Analytic continuation** — extending functions beyond their original domain. The $\zeta$ function, the $\Gamma$ function, and other special functions arise this way.

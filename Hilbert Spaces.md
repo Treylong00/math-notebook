@@ -153,5 +153,5 @@ becomes the central object -- in quantum mechanics, $\hat{A}$ is an observable (
 This leads to:
 
 - **[[Operators and Eigenvalues]]** -- self-adjoint operators, spectral theory, the connection between eigenvalues and measurement
-- **Dirac notation** -- the physicist's shorthand $|\psi\rangle$, $\langle \phi | \psi \rangle$, which makes the Hilbert space structure even more transparent
+- **[[Dirac notation]]** -- the physicist's shorthand $|\psi\rangle$, $\langle \phi | \psi \rangle$, which makes the Hilbert space structure even more transparent
 - **Spectral theorem** -- the infinite-dimensional analog of diagonalization, which guarantees that self-adjoint operators have a complete set of eigenfunctions

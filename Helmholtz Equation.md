@@ -12,6 +12,9 @@ $$\nabla^2 \psi + k^2 \psi = 0, \qquad k = \frac{\omega}{c}$$
 
 This is the **Helmholtz equation**. It asks: for a given frequency $\omega$, what spatial patterns $\psi(\mathbf{r})$ are consistent with wave propagation? When $k = 0$, it reduces to Laplace's equation $\nabla^2 \psi = 0$ — the harmonic functions from [[Harmonic Functions]] are the zero-frequency limit.
 
+Yes — $k = 0$ corresponds to $\omega = 0$, which means no time dependence at all. The factor $e^{-i\omega t}$ becomes $1$, so $\Psi(\mathbf{r}, t) = \psi(\mathbf{r})$ is a field frozen in time: the static or "DC" limit. In electromagnetism that is exactly electrostatics and magnetostatics — and the electrostatic potential satisfying $\nabla^2 V = 0$ in source-free regions is literally a harmonic function. So [[Harmonic Functions|harmonic functions]] are the DC modes of the wave equation.
+
+
 ## The Helmholtz Operator
 
 In the language of [[Dirac Notation]], the Helmholtz equation is an eigenvalue problem. Define the Laplacian as an operator $\hat{L} = \nabla^2$ acting on states $|\psi\rangle$ in a [[Hilbert Spaces|Hilbert space]]. Then
@@ -20,17 +23,32 @@ $$\hat{L}|\psi\rangle = -k^2|\psi\rangle$$
 
 The eigenstates of $-\hat{L}$ are the spatial modes of the system, and the eigenvalues $k^2$ are related to the allowed frequencies by $\omega = ck$. This is the same structure as the time-independent Schrodinger equation from [[The Schrodinger Equation]], with $-\hat{L}$ playing the role of the Hamiltonian and $k^2$ playing the role of the energy.
 
+Yes — by definition a harmonic function satisfies $\nabla^2 f = 0$, which is the eigenvalue equation $\hat{L}|f\rangle = 0\cdot|f\rangle$. So harmonic functions are exactly the zero-eigenvalue eigenstates of the Laplacian — the kernel of $\hat{L}$. Whether that eigenvalue actually appears in the spectrum of a given problem depends on the boundary conditions: on a bounded domain with Dirichlet boundaries ($\psi = 0$ on the walls), no nontrivial harmonic function vanishes on the boundary, so $\lambda = 0$ is excluded and the spectrum starts at a positive $k_1^2$. With Neumann boundaries ($\partial_n\psi = 0$), the constant function $\psi = \text{const}$ is harmonic *and* satisfies the boundary condition, so $\lambda = 0$ is the lowest eigenvalue.
+
+
 ## Free-Space Eigenstates
 
 In unbounded space with no boundaries, the eigenstates of $\hat{L}$ are plane waves. In [[Dirac Notation]], they are the kets $|\mathbf{k}\rangle$ with position representation
 
 $$\langle \mathbf{r} | \mathbf{k} \rangle = \frac{e^{i\mathbf{k}\cdot\mathbf{r}}}{(2\pi)^{d/2}}$$
 
-where $d$ is the spatial dimension. These satisfy
+where $d$ is the spatial dimension. It is worth being careful about what this bracket means. For two normalizable states $|\phi\rangle, |\psi\rangle \in L^2$, the inner product is the familiar integral $\langle\phi|\psi\rangle = \int \phi^*(\mathbf{r})\psi(\mathbf{r})\,d\mathbf{r}$. But $|\mathbf{r}\rangle$ and $|\mathbf{k}\rangle$ are *not* square-integrable functions — they are continuous basis kets, delta-normalized rather than unit-normalized. So $\langle \mathbf{r}|\mathbf{k}\rangle$ is not an integral of two functions. It is a single complex number: the value of the plane-wave state $|\mathbf{k}\rangle$ at position $\mathbf{r}$, exactly analogous to $\psi(\mathbf{r}) = \langle \mathbf{r}|\psi\rangle$ for an ordinary state.
+
+The formula $e^{i\mathbf{k}\cdot\mathbf{r}}/(2\pi)^{d/2}$ is derived, not postulated. Define $|\mathbf{k}\rangle$ as the eigenstate of the momentum operator $\hat{\mathbf{P}}$, which in the position basis is $\hat{\mathbf{P}} = -i\nabla$. The eigenvalue equation $\hat{\mathbf{P}}|\mathbf{k}\rangle = \mathbf{k}|\mathbf{k}\rangle$, projected onto $\langle\mathbf{r}|$, becomes
+
+$$-i\nabla \langle\mathbf{r}|\mathbf{k}\rangle = \mathbf{k}\,\langle\mathbf{r}|\mathbf{k}\rangle$$
+
+whose solution is $\langle\mathbf{r}|\mathbf{k}\rangle = C\,e^{i\mathbf{k}\cdot\mathbf{r}}$. The constant $C = 1/(2\pi)^{d/2}$ is fixed by demanding the delta-normalization $\langle\mathbf{k}'|\mathbf{k}\rangle = \delta(\mathbf{k}' - \mathbf{k})$, since
+
+$$\langle\mathbf{k}'|\mathbf{k}\rangle = \int \langle\mathbf{k}'|\mathbf{r}\rangle\langle\mathbf{r}|\mathbf{k}\rangle\,d\mathbf{r} = |C|^2 \int e^{-i(\mathbf{k}' - \mathbf{k})\cdot\mathbf{r}}\,d\mathbf{r} = (2\pi)^d |C|^2\,\delta(\mathbf{k}' - \mathbf{k})$$
+
+using the Fourier representation of the delta function.
+
+Applying the Laplacian to this plane wave is direct: $\nabla^2 e^{i\mathbf{k}\cdot\mathbf{r}} = -|\mathbf{k}|^2 e^{i\mathbf{k}\cdot\mathbf{r}}$, so
 
 $$\hat{L}|\mathbf{k}\rangle = -|\mathbf{k}|^2 |\mathbf{k}\rangle$$
 
-so the eigenvalue is $k^2 = |\mathbf{k}|^2$. In free space, $k^2$ can be any non-negative number — the spectrum is **continuous**. The plane waves form a complete orthonormal set:
+and the eigenvalue is $k^2 = |\mathbf{k}|^2$. In free space, $k^2$ can be any non-negative number — the spectrum is **continuous**. The plane waves form a complete orthonormal set:
 
 $$\langle \mathbf{k}' | \mathbf{k} \rangle = \delta(\mathbf{k}' - \mathbf{k}), \qquad \int |\mathbf{k}\rangle\langle\mathbf{k}| \, d\mathbf{k} = \hat{I}$$
 
@@ -140,6 +158,7 @@ When $k^2$ approaches an eigenvalue $k_{mn}^2$, the corresponding denominator $k
 
 ## Where to Go Next
 
+- **[[Greens Functions]]** — the free-space Helmholtz Green's function in 1D/2D/3D, the $i\epsilon$ prescription that selects outgoing waves, and worked problems in electrostatics, driven cavities, and 1D scattering.
 - **Scattering theory** — in unbounded domains, the Helmholtz equation describes waves scattered by obstacles. The Green's function gives the outgoing wave from each scattering event.
 - **Waveguides and cavities** — the modes of [[Maxwells Equations|electromagnetic waveguides]] satisfy the Helmholtz equation in the transverse plane. The eigenvalues $k_{mn}^2$ determine the cutoff frequencies.
 - **Spectral geometry** — the study of how eigenvalue spectra encode geometric information. Weyl's law gives the asymptotic density of eigenvalues in terms of the domain's area and perimeter.

@@ -47,6 +47,8 @@ Each term you add brings the approximation closer to the sharp corners of the sq
 ![[Figures/fourier_square_wave.png]]
 *Figure 1: Fourier partial sums of a square wave using 1, 3, 5, and 15 odd harmonics, showing progressive convergence and Gibbs phenomenon at the discontinuities.*
 
+<!-- Claude: Figure out why the above figure is missing -->
+
 ![[Figures/anim_fourier_convergence.gif]]
 *Animation 1: Fourier partial sums converging to the square wave, showing Gibbs phenomenon emerging as terms are added.*
 

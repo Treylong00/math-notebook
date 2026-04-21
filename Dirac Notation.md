@@ -38,9 +38,9 @@ $$|\psi\rangle = \sum_n c_n\,|n\rangle, \qquad c_n = \langle n|\psi\rangle$$
 The coefficients $c_n$ are inner products — projections of $|\psi\rangle$ onto each basis vector. The probability of measuring the system in state $|n\rangle$ is $P(n) = |c_n|^2 = |\langle n|\psi\rangle|^2$, which is the [[Probability and Complex Amplitudes|Born rule]] written in Dirac notation.
 
 ![[Figures/dirac_basis_decomposition.png]]
-*Figure 1: A wavefunction $\psi(x)$ shown in the position basis (left) and its energy-basis decomposition $|\langle n|\psi\rangle|^2$ as a bar chart of measurement probabilities (right).*
+*Figure 1: A wavefunction viewed in two bases, with the projection step made explicit. Left: $\psi(x) = \langle x|\psi\rangle$ in the position basis. Middle: the same state written as $\sum_n c_n \phi_n(x)$, with each weighted component $c_n\phi_n(x)$ stacked below — the coefficients $c_n = \langle n|\psi\rangle$ are the projections that bridge the two domains. Right: $|c_n|^2$ in the energy basis, the probabilities of measuring energy $E_n$.*
 
-The left panel shows the wavefunction $\psi(x) = \langle x|\psi\rangle$ — the state expressed in the position basis. The right panel shows the same state decomposed in the energy basis: each bar is $|\langle n|\psi\rangle|^2$, the probability of measuring energy $E_n$.
+The middle panel makes the decomposition visible: starting from $\psi(x)$ at the top, each row below it is one term $c_n\phi_n(x)$ of the sum. Adding those rows reproduces $\psi(x)$ exactly — that is the content of $|\psi\rangle = \sum_n c_n |n\rangle$. The coefficient $c_n$ is computed by the inner-product integral $\langle n|\psi\rangle = \int \phi_n^*(x)\psi(x)\,dx$, which measures how much of $\phi_n$ is present in $\psi$. Squaring those coefficients gives the bar chart on the right — the state expressed in the energy basis.
 
 ## Outer Products and Projectors
 
